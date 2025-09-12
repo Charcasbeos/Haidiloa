@@ -37,17 +37,14 @@ class _UploadImagePageState extends State<UploadImagePage> {
     if (_image == null) return;
 
     try {
-      final fileName = '${DateTime.now().millisecondsSinceEpoch}.jpg';
+      final bucket = "haidiloa";
+      final filePath = 'dishes/${DateTime.now().millisecondsSinceEpoch}.jpg';
 
       // Upload lên bucket "avatars"
-      final uploadedPath = await _supabase.storage
-          .from('avatars')
-          .upload(fileName, _image!);
+      await _supabase.storage.from(bucket).upload(filePath, _image!);
 
       // Lấy public url
-      final publicUrl = _supabase.storage
-          .from('avatars')
-          .getPublicUrl(uploadedPath);
+      final publicUrl = _supabase.storage.from(bucket).getPublicUrl(filePath);
 
       setState(() {
         _uploadedUrl = publicUrl;

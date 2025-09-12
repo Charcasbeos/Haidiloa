@@ -1,5 +1,5 @@
 class DishEntity {
-  final String id;
+  final String? id;
   final String name;
   final String imageURL;
   final String description;
