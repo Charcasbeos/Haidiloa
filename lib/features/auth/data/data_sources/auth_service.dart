@@ -9,8 +9,12 @@ class AuthService {
     return _client.auth.signInWithPassword(email: email, password: password);
   }
 
-  Future<AuthResponse> signUp(String email, String password) {
-    return _client.auth.signUp(email: email, password: password);
+  Future<AuthResponse> signUp(String name, String email, String password) {
+    return _client.auth.signUp(
+      email: email,
+      password: password,
+      data: {'display_name': name},
+    );
   }
 
   Future<void> signOut() async {

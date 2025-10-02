@@ -1,5 +1,5 @@
 class DishModel {
-  final String id;
+  final int? id;
   final String name;
   final String imageURL;
   final String description;
@@ -17,13 +17,13 @@ class DishModel {
   });
   factory DishModel.fromJson(Map<String, dynamic> json) {
     return DishModel(
-      id: json['id'] as String,
+      id: json['id'] as int,
       name: json['name'] ?? '',
-      imageURL: json['imageURL'] ?? '',
+      imageURL: json['image'] ?? '',
       description: json['description'] ?? '',
       note: json['note'] ?? '',
       quantity: json['quantity'] ?? -1,
-      price: json['price'] ?? -1,
+      price: json['price'] * 1.0 ?? -1.0,
     );
   }
   Map<String, dynamic> toJson() {

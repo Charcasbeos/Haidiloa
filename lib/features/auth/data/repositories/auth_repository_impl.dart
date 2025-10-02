@@ -54,11 +54,12 @@ class AuthRepositoryImpl implements AuthRepository {
 
   @override
   Future<DataState<AuthEntity>> signUp({
+    required String name,
     required String email,
     required String password,
   }) async {
     try {
-      final response = await _authService.signUp(email, password);
+      final response = await _authService.signUp(name, email, password);
       final user = response.user;
       if (user == null) {
         return DataError(

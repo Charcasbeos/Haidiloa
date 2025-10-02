@@ -8,6 +8,7 @@ abstract class AuthRepository {
     required String password,
   });
   Future<DataState<AuthEntity>> signUp({
+    required String name,
     required String email,
     required String password,
   });

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:haidiloa/features/admin/presentation/pages/admin_page.dart';
-import 'package:haidiloa/features/auth/presentation/bloc/auth/auth_bloc.dart';
-import 'package:haidiloa/features/auth/presentation/bloc/auth/auth_state.dart';
+import 'package:haidiloa/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:haidiloa/features/auth/presentation/bloc/auth_state.dart';
+import 'package:haidiloa/features/user/presentation/bloc/user_bloc.dart';
+import 'package:haidiloa/features/user/presentation/bloc/user_event.dart';
+import 'package:haidiloa/features/user/presentation/pages/home_page.dart';
 import 'package:haidiloa/features/auth/presentation/widgets/sign_in_form.dart';
 import 'package:haidiloa/features/auth/presentation/widgets/sign_up_form.dart';
-import 'package:haidiloa/features/dishes/presentation/pages/home_page.dart';
 
 class AuthGate extends StatefulWidget {
   const AuthGate({super.key});
@@ -57,9 +59,9 @@ class _AuthGateState extends State<AuthGate> {
 
   Widget _homeByRole(String role) {
     if (role.toLowerCase() == 'admin') {
-      return const AdminPage();
+      return AdminPage();
     }
-    return const HomePage();
+    return HomePage();
   }
 
   @override
@@ -67,6 +69,7 @@ class _AuthGateState extends State<AuthGate> {
     return BlocBuilder<AuthBloc, AuthState>(
       builder: (context, state) {
         if (state is UserSuccess) {
+          context.read<UserBloc>().add(LoadUserEvent());
           return _homeByRole(state.userEntity.role);
         }
 

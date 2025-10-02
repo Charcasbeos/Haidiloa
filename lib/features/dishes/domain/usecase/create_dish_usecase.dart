@@ -9,6 +9,6 @@ class CreateDishUsecase implements Usecase<DataState<void>, DishEntity> {
 
   @override
   Future<DataState<void>> call({required DishEntity params}) {
-    return _dishRepository.createDish(dish: params);
+    return _dishRepository.createDish(dishEntity: params);
   }
 }

@@ -8,7 +8,7 @@ class GetDishesUsecase implements Usecase<DataState<List<DishEntity>>, void> {
   GetDishesUsecase(this._dishRepository);
 
   @override
-  Future<DataState<List<DishEntity>>> call({required void params}) {
+  Future<DataState<List<DishEntity>>> call({void params}) {
     return _dishRepository.getDishes();
   }
 }

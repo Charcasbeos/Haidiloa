@@ -17,4 +17,20 @@ class DishMapper {
   static List<DishEntity> toDishesEntityList(List<DishModel> models) {
     return models.map((e) => toDishEntity(e)).toList();
   }
+
+  static DishModel toDishModel(DishEntity dishEntity) {
+    return DishModel(
+      id: dishEntity.id,
+      name: dishEntity.name,
+      imageURL: dishEntity.imageURL,
+      description: dishEntity.description,
+      note: dishEntity.note,
+      quantity: dishEntity.quantity,
+      price: dishEntity.price,
+    );
+  }
+
+  static List<DishModel> toDishesModelList(List<DishEntity> entities) {
+    return entities.map((e) => toDishModel(e)).toList();
+  }
 }

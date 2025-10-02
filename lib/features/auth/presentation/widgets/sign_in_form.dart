@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:haidiloa/features/auth/domain/entities/sign_in.dart';
-import 'package:haidiloa/features/auth/presentation/bloc/auth/auth_bloc.dart';
-import 'package:haidiloa/features/auth/presentation/bloc/auth/auth_event.dart';
-import 'package:haidiloa/features/auth/presentation/bloc/auth/auth_state.dart';
+import 'package:haidiloa/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:haidiloa/features/auth/presentation/bloc/auth_event.dart';
+import 'package:haidiloa/features/auth/presentation/bloc/auth_state.dart';
 
 class SignInForm extends StatefulWidget {
   final VoidCallback onToggle;
@@ -37,7 +37,7 @@ class _SignInFormState extends State<SignInForm> {
                           "Welcome back!",
                           style: TextStyle(
                             fontSize: 20,
-                            color: Colors.blueAccent,
+                            color: Color(0xffdc0405),
                           ),
                         ),
                         Text(
@@ -53,10 +53,18 @@ class _SignInFormState extends State<SignInForm> {
                   controller: _emailController,
                   decoration: InputDecoration(
                     labelText: 'Email',
+                    floatingLabelStyle: TextStyle(color: Colors.blue),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5), // bo tròn
                       borderSide: BorderSide(
                         color: Colors.grey.shade300,
+                        width: 1,
+                      ),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                        color: Colors.blue,
+
                         width: 1,
                       ),
                     ),
@@ -71,10 +79,18 @@ class _SignInFormState extends State<SignInForm> {
                   controller: _passwordController,
                   decoration: InputDecoration(
                     labelText: 'Password',
+                    floatingLabelStyle: TextStyle(color: Colors.blue),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5), // bo tròn
                       borderSide: BorderSide(
                         color: Colors.grey.shade300,
+                        width: 1,
+                      ),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                        color: Colors.blue,
+
                         width: 1,
                       ),
                     ),
@@ -102,7 +118,7 @@ class _SignInFormState extends State<SignInForm> {
                     width: 250,
                     padding: EdgeInsets.symmetric(vertical: 16),
                     decoration: BoxDecoration(
-                      color: Color(0xFF4A3780),
+                      color: Color(0xffdc0405),
                       borderRadius: BorderRadius.circular(50),
                     ),
                     child: Text(
@@ -127,7 +143,9 @@ class _SignInFormState extends State<SignInForm> {
                 const SizedBox(height: 20),
 
                 GestureDetector(
-                  onTap: widget.onToggle,
+                  onTap: () {
+                    widget.onToggle();
+                  },
                   child: const Text(
                     "Don't have an account? Sign up now.",
                     style: TextStyle(fontSize: 12, color: Colors.blue),
