@@ -1,4 +1,4 @@
-# haidiloa
+# Haidiloa
 
 A new Flutter project.
 
@@ -6,21 +6,23 @@ A new Flutter project.
 
 This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+Some useful resources to help you get started with Flutter development:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)  
+- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)  
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+For more details, check out the [online documentation](https://docs.flutter.dev/), which offers tutorials, samples, and a full API reference.
 
-- Quan ly:
-    + Danh sach mon an
-    + Danh sach khach hang
-    + Danh sach hoa don
-    + CRUD mon an
-    + CRUD hoa don
-- Nguoi dung:
-    + Booking dat ban
-    + Order do an
+---
+
+## Features
+
+### Admin
+- Manage dish list  
+- Manage invoice list  
+- CRUD operations for dishes  
+- Update invoices  
+
+### User
+- Table booking  
+- Food ordering  
